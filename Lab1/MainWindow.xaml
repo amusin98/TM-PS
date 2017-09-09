@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="406.2" Width="741.8">
+    <Grid Margin="0,0,0.4,-0.2">
+        <DataGrid Name="data" HorizontalAlignment="Left" Height="283" Margin="189,38,0,0" VerticalAlignment="Top" Width="329" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Определить тип производства" HorizontalAlignment="Left" Margin="535,167,0,0" VerticalAlignment="Top" Width="190" Height="72" Click="Button_Click_1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="222,4,0,0" TextWrapping="Wrap" Text="Определение типа производства" VerticalAlignment="Top" Width="218" Height="29"/>
+        <TextBox Name="Code" HorizontalAlignment="Left" Height="30" Margin="10,88,0,0" TextWrapping="Wrap" Text="Введите код операции" VerticalAlignment="Top" Width="138"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="Добавление операции" VerticalAlignment="Top" Width="138" Height="31"/>
+        <TextBlock HorizontalAlignment="Left" Margin="21,67,0,0" TextWrapping="Wrap" Text="Код операции" VerticalAlignment="Top" Width="117"/>
+        <TextBlock HorizontalAlignment="Left" Margin="21,138,0,0" TextWrapping="Wrap" Text="Название операции" VerticalAlignment="Top" Width="117"/>
+        <TextBox Name="Name" HorizontalAlignment="Left" Height="44" Margin="10,159,0,0" TextWrapping="Wrap" Text="Введите название операции" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,208,0,0" TextWrapping="Wrap" Text="Штучно-калькуляционное время" VerticalAlignment="Top" Width="128"/>
+        <TextBox Name="Time" HorizontalAlignment="Left" Height="23" Margin="10,261,0,0" TextWrapping="Wrap" Text="Введите время" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Добавить операцию" HorizontalAlignment="Left" Margin="20,301,0,0" VerticalAlignment="Top" Width="117" Height="30" Click="Button_Click"/>
+
     </Grid>
 </Window>
