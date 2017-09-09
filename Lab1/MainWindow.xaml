@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="406.2" Width="741.8">
+        Title="MainWindow" Height="406.2" Width="821">
     <Grid Margin="0,0,0.4,-0.2">
-        <DataGrid Name="data" HorizontalAlignment="Left" Height="283" Margin="189,38,0,0" VerticalAlignment="Top" Width="329" ItemsSource="{Binding}">
+        <DataGrid Name="data" HorizontalAlignment="Left" Height="283" Margin="189,38,0,0" VerticalAlignment="Top" Width="409" ItemsSource="{Binding}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Code" Binding="{Binding Code}"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
+                <DataGridTextColumn Header="Код" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Штучно-кальк. время" Binding="{Binding Time}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Определить тип производства" HorizontalAlignment="Left" Margin="535,167,0,0" VerticalAlignment="Top" Width="190" Height="72" Click="Button_Click_1"/>
+        <Button Content="Определить тип производства" HorizontalAlignment="Left" Margin="614,280,0,0" VerticalAlignment="Top" Width="190" Height="72" Click="Button_Click_1"/>
         <TextBlock HorizontalAlignment="Left" Margin="222,4,0,0" TextWrapping="Wrap" Text="Определение типа производства" VerticalAlignment="Top" Width="218" Height="29"/>
         <TextBox Name="Code" HorizontalAlignment="Left" Height="30" Margin="10,88,0,0" TextWrapping="Wrap" Text="Введите код операции" VerticalAlignment="Top" Width="138"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="Добавление операции" VerticalAlignment="Top" Width="138" Height="31"/>
@@ -24,6 +24,12 @@
         <TextBlock HorizontalAlignment="Left" Margin="20,208,0,0" TextWrapping="Wrap" Text="Штучно-калькуляционное время" VerticalAlignment="Top" Width="128"/>
         <TextBox Name="Time" HorizontalAlignment="Left" Height="23" Margin="10,261,0,0" TextWrapping="Wrap" Text="Введите время" VerticalAlignment="Top" Width="120"/>
         <Button Content="Добавить операцию" HorizontalAlignment="Left" Margin="20,301,0,0" VerticalAlignment="Top" Width="117" Height="30" Click="Button_Click"/>
+        <TextBox Name="n_input" HorizontalAlignment="Left" Height="23" Margin="637,53,0,0" TextWrapping="Wrap" Text="0,8" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Нормативный коэффициент загрузки" VerticalAlignment="Top" Margin="637,15,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Годовая программа" VerticalAlignment="Top" Margin="637,89,0,0"/>
+        <TextBox Name="N_input" HorizontalAlignment="Left" Height="23" Margin="637,105,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Действительный годовой фонд времени" VerticalAlignment="Top" Margin="637,148,0,0"/>
+        <TextBox Name="Fd_input" HorizontalAlignment="Left" Height="23" Margin="637,180,0,0" TextWrapping="Wrap" Text="2016" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

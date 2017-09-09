@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Lab1
 {
-    class Operation
+    public class Operation
     {
         public string Code { get; set; }
         public string Name { get; set; }
         public double Time { get; set; }
+        public double M_p { get; set; }
+        public double P { get; set; }
+        public double N_zf { get; set; }
+        public double O { get; set; }
+        public double O_pr { get; set; }
 
         public Operation(string code, string name, double time)
         {

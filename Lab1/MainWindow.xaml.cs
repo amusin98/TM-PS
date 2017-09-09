@@ -34,75 +34,68 @@ namespace Lab1
         {
             Operation oper = new Operation(Code.Text, Name.Text, Convert.ToDouble(Time.Text));
             data.Items.Add(oper);
+            Code.Clear();
+            Name.Clear();
+            Time.Clear();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            N = Convert.ToInt32(N_input.Text);
+            n_zn = Convert.ToDouble(n_input.Text);
+            F_d = Convert.ToInt32(Fd_input.Text);
             List<double> time = new List<double>();
             List<double> countOfStank = new List<double>();
             foreach (Operation item in data.Items)
             {
                 time.Add(item.Time);
-                countOfStank.Add((N * item.Time) / (60 * F_d * n_zn));
+                countOfStank.Add(Math.Round((N * item.Time) / (60 * F_d * n_zn), 3));
             }
-            MessageBox.Show("Mp");
-            countOfStank.ForEach(x => MessageBox.Show(x.ToString()));
+            
             List<double> countOfPlaces = new List<double>();
             foreach (var item in countOfStank)
             {
                 countOfPlaces.Add(Math.Ceiling(item));
             }
-            MessageBox.Show("P");
-            countOfPlaces.ForEach(x => MessageBox.Show(x.ToString()));
+           
             List<double> n_zf = new List<double>();
             for (int i = 0; i < countOfStank.Count; i++)
             {
-                n_zf.Add(countOfStank[i] / countOfPlaces[i]);
+                n_zf.Add(Math.Round(countOfStank[i] / countOfPlaces[i], 3));
             }
-            MessageBox.Show("N_zf");
-            n_zf.ForEach(x => MessageBox.Show(x.ToString()));
+            
             List<double> O = new List<double>();
             foreach (var item in n_zf)
             {
-                O.Add(n_zn/item);
+                O.Add(Math.Round(n_zn/item, 3));
             }
-            MessageBox.Show("O");
-            O.ForEach(x => MessageBox.Show(x.ToString()));
+          
             List<double> O_pr = new List<double>();
             foreach (var item in O)
             {
                 O_pr.Add(Math.Ceiling(item));
             }
-            MessageBox.Show("O_pr");
-            O_pr.ForEach(x => MessageBox.Show(x.ToString()));
-            double Kzo = O_pr.Sum() / countOfPlaces.Sum();
-            MessageBox.Show("Kzo: " + Kzo);
+      
+            double Kzo = Math.Round(O_pr.Sum() / countOfPlaces.Sum(), 3);
+            
             double n;
             if (Kzo == 1)
             {
-                n = N * a / 255;
+                n = Math.Round((double)N * a / 255);
             } else
             {
-                n = (476 * 0.8 * c) / (time.Sum() / countOfPlaces.Sum());
-            }
-            MessageBox.Show("n: " + n);
-            if(Kzo == 1)
-            {
-                MessageBox.Show("Массовый тип производства");
-            } else if (Kzo > 1 && Kzo <= 10)
-            {
-                MessageBox.Show("Крупно-серийный тип производства");
-            } else if (Kzo > 10 && Kzo <= 20)
-            {
-                MessageBox.Show("Средне-серийный тип производства");
-            } else if (Kzo > 20 && Kzo <= 40)
-            {
-                MessageBox.Show("Мелко-серийный тип производства");
-            } else
-            {
-                MessageBox.Show("Единичный тип производства");
+                n = Math.Round((476 * n_zn * c) / (time.Sum() / countOfPlaces.Sum()));
             }
             
+            List<Operation> operations = new List<Operation>();
+            for(int i = 0; i < data.Items.Count; i++)
+            {
+                Operation item = (Operation)data.Items[i];
+                operations.Add(new Operation(item.Code, item.Name, item.Time) { M_p = countOfStank[i], P = countOfPlaces[i], N_zf = n_zf[i], O = O[i], O_pr = O_pr[i] });
+            }
+            Result res = new Result(this, operations, Kzo, n);
+            res.Activate();
+            res.Show();
         }
     }
 }
