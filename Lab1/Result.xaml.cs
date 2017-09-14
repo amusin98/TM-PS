@@ -49,7 +49,7 @@ namespace Lab1
             {
                 type = "Единичный тип производства";
             }
-            result.Text += "Кз.о. = " + kzo;
+            result.Text += "\nКз.о. = " + kzo;
             result.Text += "\n" + type;
             result.Text += "\nОбьем выпуска: " + n;
         }
